@@ -1,13 +1,33 @@
-//const express = require('express')
+/**
+ * Updated by trungquandev.com's author on August 17 2023
+ * YouTube: https://youtube.com/@trungquandev
+ * "A bit of fragrance clings to the hand that gives flowers!"
+ */
+
 import express from 'express'
+import { mapOrder } from './utils/sorts.js'
 
 const app = express()
-const hostname = 'localhost'
-const port = 2002
 
-app.get('/', function (req, res) {
-    res.send('<h3>Hello World NodeJS KimThuLuu</h6>')
+const hostname = 'localhost'
+const port = 2712
+
+app.get('/', (req, res) => {
+  // Test Absolute import mapOrder
+  // eslint-disable-next-line no-console
+  console.log(mapOrder(
+    [{ id: 'id-1', name: 'One' },
+    { id: 'id-2', name: 'Two' },
+    { id: 'id-3', name: 'Three' },
+    { id: 'id-4', name: 'Four' },
+    { id: 'id-5', name: 'Five' }],
+    ['id-5', 'id-4', 'id-2', 'id-3', 'id-1'],
+    'id'
+  ))
+  res.end('<h1>Hello World!</h1><hr>')
 })
+
 app.listen(port, hostname, () => {
-    console.log(`Hello KimThu, I'm running server at http://${hostname}:${port}/`)
+  // eslint-disable-next-line no-console
+  console.log(`Hello Kim Thu Luu, I am running at http://${hostname}:${port}/`)
 })
